@@ -1,18 +1,31 @@
 #include<stdio.h>
-#include<math.h>
-int main(){
-    int T,D,K;
-    double pi=3.14159,r1,r2,area1,area2,area;
-    scanf("%d",&T);
-    while(T--){
-        scanf("%d",&D,&K);
-        r1=(2*pi*D)/((2*pi*K)-(2*pi));
-        r2=r1-D;
-        area1=pi*r1*r1;
-        area2=pi*r2*r2;
-        area=area1-area2;
-        printf("%lf",&area);
-    }
-    return 0;
+int main()
+{
+	int L,R,count;
+	int digits;
+	scanf("%d %d",&L, &R);
 
+
+	if (L==R){
+		if(L%2==0)
+			count = 0;
+		else
+			count = 1;
+	}
+	else if(L%2 == 0 && R%2==0){
+		L = L-1;
+		digits = R-L;
+		count = digits/2;
+	}
+	else if((L%2 == 0 && R%2!=0) || (L%2 != 0 && R%2==0)){
+		L = L-1;
+		digits = R-L;
+		count = digits/2;
+	}
+	else{
+		L = L-1;
+		digits = R-L;
+		count = digits/2 +1;
+	}
+	printf("%d\n",count);
 }

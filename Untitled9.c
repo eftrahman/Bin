@@ -1,19 +1,16 @@
 #include <stdio.h>
-int printpattern(int n) {
-   if(n>0) {
-      printpattern(n-1);
-      printf("*");
+int main()
+{
+   int n;  // variable declaration
+   int count=0;   // variable declaration
+   printf("Enter a number");
+   scanf("%d",&n);
+   while(n!=0)
+   {
+       n=n/10;
+       count++;
    }
-}
-int pattern(int n) {
-   if(n>0) {
-      pattern(n-1); //will recursively print the pattern
-   }
-   printpattern(n); //will reduce the n recursively.
-   printf("\n"); //for new line
-}
-int main(int argc, char const *argv[]) {
-   int n = 7;
-   pattern(n);
-   return 0;
+
+   printf("\nThe number of digits in an integer is : %d",count);
+    return 0;
 }
